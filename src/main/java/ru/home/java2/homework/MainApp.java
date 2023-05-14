@@ -25,7 +25,7 @@ public class MainApp {
         }
 
 //        System.out.println("One thread time: " + (System.currentTimeMillis() - startTime) + " ms.");
-        System.out.println(Arrays.toString(initialArray));
+        System.out.println("Initial array after formula: " + Arrays.toString(initialArray));
     }
 
     public static void splitAndMerge() throws InterruptedException {
@@ -71,6 +71,6 @@ public class MainApp {
         System.arraycopy(rightHalf, 0, mergedArray, HALF, HALF);
 
 //        System.out.println("Two thread time: " + (System.currentTimeMillis() - startTime) + " ms.");
-        System.out.println(Arrays.toString(mergedArray));
+        System.out.println("Merged array after formula: " + Arrays.toString(mergedArray));
     }
 }
