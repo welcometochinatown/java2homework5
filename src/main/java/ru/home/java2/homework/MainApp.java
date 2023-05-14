@@ -14,9 +14,7 @@ public class MainApp {
     public static void initializeArray() {
         float[] initialArray = new float[SIZE];
 
-        for (int i = 0; i < SIZE; i++) {
-            initialArray[i] = 1.0f;
-        }
+        Arrays.fill(initialArray, 1.0f);
 
         long startTime = System.currentTimeMillis();
 
@@ -31,9 +29,7 @@ public class MainApp {
     public static void splitAndMerge() throws InterruptedException {
         float[] initialArray = new float[SIZE];
 
-        for (int i = 0; i < SIZE; i++) {
-            initialArray[i] = 1.0f;
-        }
+        Arrays.fill(initialArray, 1.0f);
 
         // Запускаем таймер
         long startTime = System.currentTimeMillis();
