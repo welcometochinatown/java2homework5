@@ -3,7 +3,7 @@ package ru.home.java2.homework;
 import java.util.Arrays;
 
 public class MainApp {
-    static final int SIZE = 10;
+    static final int SIZE = 10_000_000;
     static final int HALF = SIZE / 2;
 
     public static void main(String[] args) throws InterruptedException {
@@ -24,8 +24,8 @@ public class MainApp {
             initialArray[i] = (float) (initialArray[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
         }
 
-//        System.out.println("One thread time: " + (System.currentTimeMillis() - startTime) + " ms.");
-        System.out.println("Initial array after formula: " + Arrays.toString(initialArray));
+        System.out.println("One thread time: " + (System.currentTimeMillis() - startTime) + " ms.");
+//        System.out.println("Initial array after formula: " + Arrays.toString(initialArray));
     }
 
     public static void splitAndMerge() throws InterruptedException {
@@ -57,7 +57,8 @@ public class MainApp {
             for (int i = 0; i < HALF; i++) {
                 // Проблема: целый массив после обработки формулой - отличается от массива разбитого на 2 части и обработанного формулой по частям,
                 // Скорее всего проблема в данной части программы, но пока не пойму в чем конкретно.
-                rightHalf[i] = (float) (rightHalf[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+                // Решение, мы делаем расчет формулой второй половины, как для 1й половины, не учитывая, что нужно делать смещение
+                rightHalf[i] = (float) (rightHalf[i] * Math.sin(0.2f + (i + HALF) / 5) * Math.cos(0.2f + (i + HALF) / 5) * Math.cos(0.4f + (i + HALF) / 2));
             }
         });
         thread2.start();
@@ -70,7 +71,7 @@ public class MainApp {
         System.arraycopy(leftHalf, 0, mergedArray, 0, HALF);
         System.arraycopy(rightHalf, 0, mergedArray, HALF, HALF);
 
-//        System.out.println("Two thread time: " + (System.currentTimeMillis() - startTime) + " ms.");
-        System.out.println("Merged array after formula: " + Arrays.toString(mergedArray));
+        System.out.println("Two thread time: " + (System.currentTimeMillis() - startTime) + " ms.");
+//        System.out.println("Merged array after formula: " + Arrays.toString(mergedArray));
     }
 }
