@@ -41,8 +41,8 @@ public class MainApp {
         // Разбиваем массив на 2 равных части
         float[] leftHalf = new float[HALF];
         float[] rightHalf = new float[HALF];
-        System.arraycopy(initialArray,0, leftHalf, 0, HALF);
-        System.arraycopy(initialArray,HALF, rightHalf, 0, HALF);
+        System.arraycopy(initialArray, 0, leftHalf, 0, HALF);
+        System.arraycopy(initialArray, HALF, rightHalf, 0, HALF);
 
         // Создаем и запускаем поток для формулы к 1й половине
         Thread thread1 = new Thread(() -> {

@@ -15,8 +15,8 @@ public class ArraySplitTest {
 
         float[] leftHalf = new float[HALF];
         float[] rightHalf = new float[HALF];
-        System.arraycopy(arr,0, leftHalf, 0, HALF);
-        System.arraycopy(arr,HALF, rightHalf, 0, HALF);
+        System.arraycopy(arr, 0, leftHalf, 0, HALF);
+        System.arraycopy(arr, HALF, rightHalf, 0, HALF);
 
         System.out.println(Arrays.toString(leftHalf));
         System.out.println(Arrays.toString(rightHalf));
