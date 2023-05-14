@@ -9,9 +9,7 @@ public class ArraySplitTest {
     public static void main(String[] args) {
         float[] arr = new float[SIZE];
 
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = 1.0f;
-        }
+        Arrays.fill(arr, 1.0f);
 
         float[] leftHalf = new float[HALF];
         float[] rightHalf = new float[HALF];
