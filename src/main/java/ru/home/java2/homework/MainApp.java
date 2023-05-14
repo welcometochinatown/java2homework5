@@ -3,7 +3,7 @@ package ru.home.java2.homework;
 import java.util.Arrays;
 
 public class MainApp {
-    static final int SIZE = 10_000_000;
+    static final int SIZE = 10;
     static final int HALF = SIZE / 2;
 
     public static void main(String[] args) throws InterruptedException {
@@ -24,7 +24,8 @@ public class MainApp {
             initialArray[i] = (float) (initialArray[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
         }
 
-        System.out.println("One thread time: " + (System.currentTimeMillis() - startTime) + " ms.");
+//        System.out.println("One thread time: " + (System.currentTimeMillis() - startTime) + " ms.");
+        System.out.println(Arrays.toString(initialArray));
     }
 
     public static void splitAndMerge() throws InterruptedException {
@@ -69,6 +70,7 @@ public class MainApp {
         System.arraycopy(leftHalf, 0, mergedArray, 0, HALF);
         System.arraycopy(rightHalf, 0, mergedArray, HALF, HALF);
 
-        System.out.println("Two thread time: " + (System.currentTimeMillis() - startTime) + " ms.");
+//        System.out.println("Two thread time: " + (System.currentTimeMillis() - startTime) + " ms.");
+        System.out.println(Arrays.toString(mergedArray));
     }
 }
