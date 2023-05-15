@@ -6,7 +6,7 @@ public class MainApp {
     static final int SIZE = 10_000_000;
     static final int HALF = SIZE / 2;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         initializeArray();
         splitAndMerge();
     }
@@ -26,7 +26,7 @@ public class MainApp {
 //        System.out.println("Initial array after formula: " + Arrays.toString(initialArray));
     }
 
-    public static void splitAndMerge() throws InterruptedException {
+    public static void splitAndMerge() {
         float[] initialArray = new float[SIZE];
 
         Arrays.fill(initialArray, 1.0f);
@@ -59,8 +59,12 @@ public class MainApp {
         });
         thread2.start();
 
-        thread1.join();
-        thread2.join();
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         // Склеиваем массивы в один, после обработки
         float[] mergedArray = new float[SIZE];
